@@ -1,0 +1,1167 @@
+{
+  "audio.dispose": {
+    "body": "audio.dispose( ${1:audioHandle} )",
+    "description": "Releases audio memory associated with the handle.",
+    "prefix": "audio.dispose"
+  },
+  "audio.fade": {
+    "body": "audio.fade( ${1:[ { [channel=c] [, time=t] [, volume=v ] } ]} )",
+    "description": "This fades a playing sound in a specified amount to a specified volume. The audio will continue playing after the fade completes.",
+    "prefix": "audio.fade"
+  },
+  "audio.fadeOut": {
+    "body": "audio.fadeOut( ${1:[ { [channel=c] [, time=t] } ]} )",
+    "description": "This stops a playing sound in a specified amount of time and fades to min volume while doing it. The audio will stop at the end of the time and the channel will be freed.",
+    "prefix": "audio.fadeOut"
+  },
+  "audio.findFreeChannel": {
+    "body": "audio.findFreeChannel( ${1:[ startChannel ]} )",
+    "description": "Looks for an available audio channel for playback. You can provide a start channel number as parameter and begin searching from that channel, increasing upward to the highest channel. The search does not include reserved channels.",
+    "prefix": "audio.findFreeChannel"
+  },
+  "audio.getDuration": {
+    "body": "audio.getDuration( ${1:audioHandle} )",
+    "description": "This function returns the total time in milliseconds of the audio resource. If the total length cannot be determined, -1 will be returned.",
+    "prefix": "audio.getDuration"
+  },
+  "audio.getMaxVolume": {
+    "body": "audio.getMaxVolume( { ${1:channel}=${2:c} } )",
+    "description": "Gets the max volume for a specific channel. There is no max volume for the master volume.",
+    "prefix": "audio.getMaxVolume"
+  },
+  "audio.getMinVolume": {
+    "body": "audio.getMinVolume( { ${1:channel}=${2:c} } )",
+    "description": "Gets the minimum volume for a specific channel. There is no minimum volume for the master volume.",
+    "prefix": "audio.getMinVolume"
+  },
+  "audio.getVolume": {
+    "body": "audio.getVolume( { ${1:channel}=${2:c} } )",
+    "description": "Gets the volume for a specific channel, or gets the master volume.",
+    "prefix": "audio.getVolume"
+  },
+  "audio.isChannelActive": {
+    "body": "audio.isChannelActive( ${1:channel} )",
+    "description": "Returns true if the specified channel is currently playing or paused; false if otherwise.",
+    "prefix": "audio.isChannelActive"
+  },
+  "audio.isChannelPaused": {
+    "body": "audio.isChannelPaused( ${1:channel} )",
+    "description": "Returns true if the specified channel is currently paused; false if not.",
+    "prefix": "audio.isChannelPaused"
+  },
+  "audio.isChannelPlaying": {
+    "body": "audio.isChannelPlaying( ${1:channel} )",
+    "description": "Returns true if the specified channel is currently playing; false if otherwise.",
+    "prefix": "audio.isChannelPlaying"
+  },
+  "audio.loadSound": {
+    "body": "audio.loadSound( ${1:audiofileName} ${2:[, baseDir ]}  )",
+    "description": "Loads an entire file completely into memory and returns a reference to the audio data. Files that are loaded completely into memory may be reused/played/shared simultaneously on multiple channels so you only need to load one instance of the file. You should use this to load all your short sounds, especially ones you may play frequently. For best results, load all the sounds at the launch of your app or the start of a new level/scene.",
+    "prefix": "audio.loadSound"
+  },
+  "audio.loadStream": {
+    "body": "audio.loadStream( ${1:audioFileName} ${2:[, baseDir ]}  )",
+    "description": "Loads (opens) a file to be read as a stream. Streamed files are read in little chunks at a time to minimize memory use. These are intended for large/long files like background music and speech. Unlike files loaded with audio.loadSound(), these cannot be shared simultaneously across multiple channels. If you need to play multiple simulataneous instances of the same file, you must load multiple instances of the file.",
+    "prefix": "audio.loadStream"
+  },
+  "audio.pause": {
+    "body": "audio.pause( ${1:[channel]} )",
+    "description": "Pauses playback on a channel (or all channels if no channels are specified). Has no effect on channels that aren't playing.",
+    "prefix": "audio.pause"
+  },
+  "audio.play": {
+    "body": "audio.play( ${1:audioHandle} ${2:[, options ]} )",
+    "description": "Plays the audio specified by the audio handle on a channel. If a channel is not explicitly specified, an available channel will be automatically chosen for you.",
+    "prefix": "audio.play"
+  },
+  "audio.reserveChannels": {
+    "body": "audio.reserveChannels( ${1:channels} )",
+    "description": "Allows you to reserve a certain number of channels so they won't be automatically assigned to play on. This function blocks off the lower number channels up to the number you specify so they won't be automatically assigned to be played on when you call various play functions.",
+    "prefix": "audio.reserveChannels"
+  },
+  "audio.resume": {
+    "body": "audio.resume( ${1:[channel]} )",
+    "description": "Resumes playback on a channel that is paused (or all channels if no channel is specified). Should have no effect on channels that aren't paused.",
+    "prefix": "audio.resume"
+  },
+  "audio.rewind": {
+    "body": "audio.rewind( ${1:[audioHandle | options]} )",
+    "description": "Rewinds audio to the beginning position on either an active channel or directly on the audio handle (rewinds all channels if no arguments are specified).",
+    "prefix": "audio.rewind"
+  },
+  "audio.seek": {
+    "body": "audio.seek( ${1:time} ${2:[, audioHandle ] [, options ]} )",
+    "description": "Seeks to a time position on either an active channel or directly on the audio handle.",
+    "prefix": "audio.seek"
+  },
+  "audio.setMaxVolume": {
+    "body": "audio.setMaxVolume( ${1:volume}, ${2:options} )",
+    "description": "Clamps the maximum volume to the set value. Any volumes that exceed the value will be played at the maximum volume level.",
+    "prefix": "audio.setMaxVolume"
+  },
+  "audio.setMinVolume": {
+    "body": "audio.setMinVolume( ${1:volume}, ${2:options} )",
+    "description": "Clamps the minimum volume to the set value. Any volumes that fall below the value will be played at the minimum volume level.",
+    "prefix": "audio.setMinVolume"
+  },
+  "audio.setVolume": {
+    "body": "audio.setVolume( ${1:volume} ${2:[, options ]} )",
+    "description": "Sets the volume either for a specific channel or sets the master volume.",
+    "prefix": "audio.setVolume"
+  },
+  "audio.stop": {
+    "body": "audio.stop( ${1:[channel]} )",
+    "description": "Stops playback on a channel (or all channels) and clears the channel(s) so they can be played on again. Callbacks will still be invoked, but the completed flag will be set to false.",
+    "prefix": "audio.stop"
+  },
+  "audio.stopWithDelay": {
+    "body": "audio.stopWithDelay( ${1:duration} ${2:[, options ]} )",
+    "description": "Stops a currently playing sound after the specified time delay.",
+    "prefix": "audio.stopWithDelay"
+  },
+  "composer.getScene": {
+    "body": "composer.getScene( ${1:sceneName} )",
+    "description": "Returns the specified scene object, as returned from composer.newScene(). Returns nil if the scene object does not exist. This function is useful for getting a reference to a specific scene object — for instance, if the current scene needs access to a specific function that's attached to another scene.",
+    "prefix": "composer.getScene"
+  },
+  "composer.getSceneName": {
+    "body": "composer.getSceneName( ${1:sceneType} )",
+    "description": "Returns the current, previous, or overlay scene name as a string. This can then be used with composer.gotoScene() or composer.removeScene().",
+    "prefix": "composer.getSceneName"
+  },
+  "composer.getVariable": {
+    "body": "composer.getVariable( ${1:variableName} )",
+    "description": "This function retrieves the value of a variable (from within the Composer object) that you previously set via composer.setVariable().",
+    "prefix": "composer.getVariable"
+  },
+  "composer.gotoScene": {
+    "body": "composer.gotoScene( ${1:sceneName} ${2:[, options]} )",
+    "description": "This function is used to transition to a specific scene. When called, the hide event is dispatched to the current scene (if one exists). If a self.view group does not already exist for the specified target scene, the create event will be dispatched to that scene, then the show event will be dispatched.",
+    "prefix": "composer.gotoScene"
+  },
+  "composer.hideOverlay": {
+    "body": "composer.hideOverlay( ${1:[recycleOnly]} ${2:[, effect]} ${3:[, time]} )",
+    "description": "This function hides/removes the current overlay scene (see composer.showOverlay()), if one is being displayed.",
+    "prefix": "composer.hideOverlay"
+  },
+  "composer.loadScene": {
+    "body": "composer.loadScene( ${1:sceneName} ${2:[, doNotLoadView]} ${3:[, params]} )",
+    "description": "Loads the specified scene, hidden behind the current scene, without initiating a scene transition. This function is similar to composer.gotoScene(), but it does not change the currently active scene. Only the create event will be dispatched on the scene, assuming its self.view does not already exist.",
+    "prefix": "composer.loadScene"
+  },
+  "composer.newScene": {
+    "body": "composer.newScene( ${1:ccscene} )",
+    "description": "This function creates new scene objects which can be used with the Composer Library, or references scenes created within the Composer GUI.",
+    "prefix": "composer.newScene"
+  },
+  "composer.removeHidden": {
+    "body": "composer.removeHidden( ${1:shouldRecycle} )",
+    "description": "This function removes (or optionally recycles) all scenes except for the currently active scene. A destroy event is first dispatched to all of these scenes.",
+    "prefix": "composer.removeHidden"
+  },
+  "composer.removeScene": {
+    "body": "composer.removeScene( ${1:sceneName}, ${2:shouldRecycle} )",
+    "description": "This function removes the specified scene (or optionally recycles it). A destroy event is first dispatched to the scene.",
+    "prefix": "composer.removeScene"
+  },
+  "composer.setVariable": {
+    "body": "composer.setVariable( ${1:variableName}, ${2:value} )",
+    "description": "This function sets a variable (within the Composer module) which you can access from any other scene via composer.getVariable().",
+    "prefix": "composer.setVariable"
+  },
+  "composer.showOverlay": {
+    "body": "composer.showOverlay( ${1:sceneName} ${2:[, options]} )",
+    "description": "This function loads an overlay scene above the currently active scene (the parent scene), leaving the parent scene intact.",
+    "prefix": "composer.showOverlay"
+  },
+  "crypto.digest": {
+    "body": "crypto.digest( ${1:algorithm}, ${2:data} ${3:[, raw]} )",
+    "description": "Generates the message digest (the hash) of the input string.",
+    "prefix": "crypto.digest"
+  },
+  "crypto.hmac": {
+    "body": "crypto.hmac( ${1:algorithm}, ${2:data}, ${3:key} ${4:[, raw]} )",
+    "description": "Computes HMAC (Key-Hashing for Message Authentication Code) of the string and returns it.",
+    "prefix": "crypto.hmac"
+  },
+  "display.capture": {
+    "body": "display.capture( ${1:displayObject}, ${2:options} )",
+    "description": "This function is the same as display.save(), but it returns a display object instead of saving to a file by default. You can optionally save the capture to the device's photo library, but this is not the default action — you must explicitly tell it to do so when calling the function.",
+    "prefix": "display.capture"
+  },
+  "display.captureBounds": {
+    "body": "display.captureBounds( ${1:screenBounds} ${2:[, saveToAlbum ]} )",
+    "description": "Captures a portion of the screen and returns it as a new DisplayObject. You can specify what portion of the screen to capture by passing in rectangular bounds. You can optionally save the capture image as a file to the device's photo library.",
+    "prefix": "display.captureBounds"
+  },
+  "display.captureScreen": {
+    "body": "display.captureScreen( ${1:[saveToAlbum]} )",
+    "description": "Captures the contents of the screen and returns it as a new display object. You can optionally save the capture as a file to the device's photo library.",
+    "prefix": "display.captureScreen"
+  },
+  "display.colorSample": {
+    "body": "display.colorSample( ${1:x}, ${2:y}, ${3:listener} )",
+    "description": "Get the color of a pixel on screen.",
+    "prefix": "display.colorSample"
+  },
+  "display.getCurrentStage": {
+    "body": "display.getCurrentStage()",
+    "description": "Returns a reference to the current stage object, which is the parent group for all display objects and groups. Currently, Corona has a single stage instance, so this function always returns a reference to the same object.",
+    "prefix": "display.getCurrentStage"
+  },
+  "display.getDefault": {
+    "body": "display.getDefault( ${1:key} )",
+    "description": "Get default display values including default colors for display objects, anchor point defaults, texture wrapping settings, etc.",
+    "prefix": "display.getDefault"
+  },
+  "display.loadRemoteImage": {
+    "body": "display.loadRemoteImage( ${1:url}, ${2:method}, ${3:listener} ${4:[, params]}, ${5:destFilename} ${6:[, baseDir]} ${7:[, x, y]} )",
+    "description": "This a convenience method, similar to network.download(), which returns a display object containing the image, as well as saving the image to a file.",
+    "prefix": "display.loadRemoteImage"
+  },
+  "display.newCircle": {
+    "body": "display.newCircle( ${1:parent}, ${2:xCenter}, ${3:yCenter}, ${4:radius} )",
+    "description": "Creates a circle with radius radius centered at specified coordinates (xCenter, yCenter). The local origin is at the center of the circle and the anchor point is initialized to this local origin.",
+    "prefix": "display.newCircle"
+  },
+  "display.newContainer": {
+    "body": "display.newContainer( ${1:[parent, ]} ${2:width}, ${3:height} )",
+    "description": "Containers are a special kind of group in which the children are clipped (masked) by the bounds of the container.",
+    "prefix": "display.newContainer"
+  },
+  "display.newEmbossedText": {
+    "body": "display.newEmbossedText( { ${1:options} } )",
+    "description": "Creates an embossed text object. The local origin is at the center of the text and the anchor point is initialized to this local origin.",
+    "prefix": "display.newEmbossedText"
+  },
+  "display.newEmitter": {
+    "body": "display.newEmitter( ${1:emitterParams} )",
+    "description": "This function is used to create an EmitterObject, used to display particle effects created with Particle Designer.",
+    "prefix": "display.newEmitter"
+  },
+  "display.newGroup": {
+    "body": "display.newGroup()",
+    "description": "Creates a group in which you can add and remove child display objects. Initially, there are no children in a group. The local origin is at the parent's origin; the anchor point is initialized to this local origin.",
+    "prefix": "display.newGroup"
+  },
+  "display.newImage": {
+    "body": "display.newImage( ${1:[parent,]} ${2:filename} ${3:[,baseDir] [,x,y] [,isFullResolution]})",
+    "description": "Displays an image on the screen from a file (supports tinting via object:setFillColor). The local origin is at the center of the image and the anchor point is initialized to this local origin.",
+    "prefix": "display.newImage"
+  },
+  "display.newImageRect": {
+    "body": "display.newImageRect( ${1:[parent,]} ${2:filename}, ${3:[baseDir,]} ${4:width}, ${5:height} )",
+    "description": "Displays an image on the screen from a file (supports tinting via object:setFillColor). The local origin is at the center of the image and the anchor point is initialized to this local origin.",
+    "prefix": "display.newImageRect"
+  },
+  "display.newLine": {
+    "body": "display.newLine( ${1:[parentGroup,]} ${2:x1}, ${3:y1}, ${4:x2}, ${5:y2} ${6:[, x3, y3, ... ]} )",
+    "description": "Draw a line from one point to another. Optionally, you may append points to the end of the line to create outline shapes or paths.",
+    "prefix": "display.newLine"
+  },
+  "display.newPolygon": {
+    "body": "display.newPolygon( ${1:parent}, ${2:x}, ${3:y}, ${4:vertices} )",
+    "description": "Draws a polygon shape by providing the outline (contour) of the shape. This includes convex or concave shapes. Self-intersecting shapes, however, are not supported and will result in undefined behavior.",
+    "prefix": "display.newPolygon"
+  },
+  "display.newRect": {
+    "body": "display.newRect( ${1:parent}, ${2:x}, ${3:y}, ${4:width}, ${5:height} )",
+    "description": "Creates a rectangle object. The local origin is at the center of the rectangle and the anchor point is initialized to this local origin.",
+    "prefix": "display.newRect"
+  },
+  "display.newRoundedRect": {
+    "body": "display.newRoundedRect( ${1:parent}, ${2:x}, ${3:y}, ${4:width}, ${5:height}, ${6:cornerRadius} )",
+    "description": "Creates a rounded rectangle object. The corners are rounded by quarter circles of a specified radius value. The local origin is at the center of the rectangle and the anchor point is initialized to this local origin.",
+    "prefix": "display.newRoundedRect"
+  },
+  "display.newSnapshot": {
+    "body": "display.newSnapshot( ${1:parent}, ${2:w}, ${3:h} )",
+    "description": "Snapshot objects let you capture a group of display objects and render them into a flattened image. The image is defined by objects that are added to the snapshot's group property.",
+    "prefix": "display.newSnapshot"
+  },
+  "display.newSprite": {
+    "body": "display.newSprite( ${1:parent}, ${2:imageSheet}, ${3:sequenceData} )",
+    "description": "Creates a sprite object. Sprites allow for animated sequences of frames that reside on image sheets. Please see the Sprite Animation and Image Sheets guides for more information.",
+    "prefix": "display.newSprite"
+  },
+  "display.newText": {
+    "body": "display.newText( ${1:options} )",
+    "description": "Creates a text object. The local origin is at the center of the text and the anchor point is initialized to this local origin.",
+    "prefix": "display.newText"
+  },
+  "display.remove": {
+    "body": "display.remove( ${1:object} )",
+    "description": "Removes a group or object if not nil.",
+    "prefix": "display.remove"
+  },
+  "display.save": {
+    "body": "display.save( ${1:displayObject}, ${2:options} )",
+    "description": "Renders the display object referenced by first argument into a JPEG or PNG image and saves it as a new file. The display object must currently be in the display hierarchy or no image will be saved. If the object is a display group, all children are also rendered.",
+    "prefix": "display.save"
+  },
+  "display.setDefault": {
+    "body": "display.setDefault( ${1:key}, ${2:gray}, ${3:alpha} )",
+    "description": "Set default display values including default colors for display objects, anchor point defaults, texture wrapping settings, etc.",
+    "prefix": "display.setDefault"
+  },
+  "display.setDrawMode": {
+    "body": "display.setDrawMode( ${1:key}, ${2:value} )",
+    "description": "Sets the draw mode.",
+    "prefix": "display.setDrawMode"
+  },
+  "display.setStatusBar": {
+    "body": "display.setStatusBar( ${1:mode} )",
+    "description": "Hides or changes the appearance of the status bar on most devices.",
+    "prefix": "display.setStatusBar"
+  },
+  "assert": {
+    "body": "assert( ${1:v} ${2:[, message]} )",
+    "description": "Issues an error and aborts the program when the value of its first argument is false (i.e. nil or false). Otherwise, it returns all its arguments.",
+    "prefix": "assert"
+  },
+  "collectgarbage": {
+    "body": "collectgarbage( ${1:[opt [, arg]]} )",
+    "description": "A generic interface to Lua's garbage collector. Using this function is not required because Lua has automatic garbage collection features.",
+    "prefix": "collectgarbage"
+  },
+  "error": {
+    "body": "error( ${1:message} ${2:[, level]} )",
+    "description": "Terminates the last protected function called (see: pcall()) and returns the first argument as the error message.",
+    "prefix": "error"
+  },
+  "getfenv": {
+    "body": "getfenv( ${1:[f]} )",
+    "description": "Returns the current environment in use by a specified Function. The first argument can be a Function or a Number that specifies the function at that stack level: level 1 is the function calling getfenv(). If the given function is not a Lua function, or if f is 0, getfenv() returns the global environment. The default for f is 1.",
+    "prefix": "getfenv"
+  },
+  "getmetatable": {
+    "body": "getmetatable( ${1:object} )",
+    "description": "Gets the metatable of a specified Table. If the table does not have a metatable, it returns nil. Otherwise, if the object's metatable has a __metatable field, it returns the associated value. Otherwise, it returns the metatable of the given table.",
+    "prefix": "getmetatable"
+  },
+  "ipairs": {
+    "body": "ipairs( ${1:t} )",
+    "description": "This function returns three values: an iteration Function, a Table, and 0. For example, the following construction will iterate over the pairs (1,t[1]), (2,t[2]), ..., up to the first integer key absent from the table.",
+    "prefix": "ipairs"
+  },
+  "next": {
+    "body": "next( ${1:array} ${2:[, index]} )",
+    "description": "Allows a program to traverse all fields of an Array. next() returns the next index of the array and its associated value. When called with nil as its second argument, next() returns an initial index and its associated value. When called with the last index, or with nil in an empty array, next() returns nil. If the second argument is absent, then it is interpreted as nil. In particular, you can use next(t) to check whether an array is empty.",
+    "prefix": "next"
+  },
+  "pairs": {
+    "body": "pairs( ${1:t} )",
+    "description": "Returns three values: the next function, a table, or nil. So, the following construction will iterate over all key-value pairs of table t.",
+    "prefix": "pairs"
+  },
+  "pcall": {
+    "body": "pcall( ${1:f} ${2:[, ...]} )",
+    "description": "Calls a function specified as the first argument, with the given arguments (as the following arguments) in protected mode. This means that any error inside f is not propagated; instead, pcall() catches the error and returns a status code. Its first result is the status code (a Boolean), which is true if the call succeeds without errors. In such case, pcall() also returns all results from the call, after this first result. In case of any error, pcall() returns false plus the error message.",
+    "prefix": "pcall"
+  },
+  "print": {
+    "body": "print( ${1:...} )",
+    "description": "Receives any number of arguments and prints their values to stdout (Corona Simulator Console, Xcode, ADB, etc.) using the tostring() function which converts them to strings. print() is not intended for formatted output, but rather as a quick way to show a value, typically for debugging. For formatted output, use string.format.",
+    "prefix": "print"
+  },
+  "rawequal": {
+    "body": "rawequal( ${1:value1}, ${2:value2} )",
+    "description": "Performs an equality (==) check between two values without invoking a metamethod. Returns a Boolean.",
+    "prefix": "rawequal"
+  },
+  "rawget": {
+    "body": "rawget( ${1:table}, ${2:index} )",
+    "description": "Gets the real value of table[index], without invoking any metamethod. table must be a Table; index may be any Number or String.",
+    "prefix": "rawget"
+  },
+  "rawset": {
+    "body": "rawset( ${1:table}, ${2:index}, ${3:value} )",
+    "description": "Sets the real value of table[index] to value without invoking any metamethod. table must be a table, index any value different from nil, and value any Lua value.",
+    "prefix": "rawset"
+  },
+  "select": {
+    "body": "select( ${1:index}, ${2:...} )",
+    "description": "If index is a number, select() returns all arguments after argument number index. Otherwise, index must be the string #, and select() returns the total number of extra arguments it received.",
+    "prefix": "select"
+  },
+  "setfenv": {
+    "body": "setfenv( ${1:f}, ${2:table} )",
+    "description": "Sets the environment — or the table where Lua keeps all its global variables — to be used by the given function.",
+    "prefix": "setfenv"
+  },
+  "setmetatable": {
+    "body": "setmetatable( ${1:table}, ${2:metatable} )",
+    "description": "Sets the metatable for the given table (you cannot change the metatable of other types from Lua, only from C). If metatable is nil, removes the metatable of the given table. If the original metatable has a __metatable field, it raises an error.",
+    "prefix": "setmetatable"
+  },
+  "tonumber": {
+    "body": "tonumber( ${1:e} ${2:[, base ]} )",
+    "description": "Tries to convert its argument to a number. If the argument is already a number or a string that can be converted to a number, tonumber() returns the number, otherwise, it returns nil.",
+    "prefix": "tonumber"
+  },
+  "type": {
+    "body": "type( ${1:v} )",
+    "description": "Returns the type of its argument. Possible results are:",
+    "prefix": "type"
+  },
+  "unpack": {
+    "body": "unpack( ${1:list} ${2:[, i [, j ]]} )",
+    "description": "Returns the elements from the given table. This function is equivalent to the following:",
+    "prefix": "unpack"
+  },
+  "graphics.defineEffect": {
+    "body": "graphics.defineEffect( ${1:effect} )",
+    "description": "This function allows you to extend Corona and define a custom shader effect. Your custom effect can define either a vertex kernel or a fragment kernel (or both). These kernels are similar to shaders, except that they must define functions with a specific name and which conform to specific function signatures.",
+    "prefix": "graphics.defineEffect"
+  },
+  "graphics.newImageSheet": {
+    "body": "graphics.newImageSheet( ${1:filename}, ${2:[baseDir, ]} ${3:options} )",
+    "description": "ImageSheet objects allow you to load multiple graphics from a single image file (also known as a spritesheet). Image sheets can be used for static images (useful for preloading many static images) and animated sprites.",
+    "prefix": "graphics.newImageSheet"
+  },
+  "graphics.newMask": {
+    "body": "graphics.newMask( ${1:filename} ${2:[, baseDir]} )",
+    "description": "Creates a bit mask from an image file. The image is converted internally to grayscale. The white pixels of the bit mask allow the covered image to be visible, while black pixels hide (mask) the covered image. The area outside of the mask must be filled with black pixels which mask off the area outside the mask image.",
+    "prefix": "graphics.newMask"
+  },
+  "graphics.newOutline": {
+    "body": "graphics.newOutline( ${1:coarsenessInTexels}, ${2:imageFileName} ${3:[, baseDir]} )",
+    "description": "This function produces the outline of the shape obtained from an image file or a frame within an ImageSheet. A shape is recognized by the image's non-transparent alpha value. Generally, simpler images produce better outlines.",
+    "prefix": "graphics.newOutline"
+  },
+  "graphics.newTexture": {
+    "body": "graphics.newTexture( ${1:params} )",
+    "description": "Creates a TextureResource object which allows you to access and manage textures. This can be used to pre-load a texture/image and prevent it from being disposed when there is no display object using it.",
+    "prefix": "graphics.newTexture"
+  },
+  "graphics.releaseTextures": {
+    "body": "graphics.releaseTextures( ${1:params} )",
+    "description": "This convenience function disposes/releases all TextureResource objects of a specific type.",
+    "prefix": "graphics.releaseTextures"
+  },
+  "io.close": {
+    "body": "io.close( ${1:[file]} )",
+    "description": "Closes an open file handle. Equivalent to file:close(). If a file handle is not specified, this function closes the default output file.",
+    "prefix": "io.close"
+  },
+  "io.flush": {
+    "body": "io.flush()",
+    "description": "Flushes the default output file. Equivalent to io.output():flush.",
+    "prefix": "io.flush"
+  },
+  "io.input": {
+    "body": "io.input( ${1:file} )",
+    "description": "Sets the standard input file. When called with a file handle, it simply sets this file handle as the default input file. When called without parameters, it returns the current default input file.",
+    "prefix": "io.input"
+  },
+  "io.lines": {
+    "body": "io.lines( ${1:file} )",
+    "description": "Opens the given file name in read mode and returns an iterator function that, each time it is called, returns a new line from the file.",
+    "prefix": "io.lines"
+  },
+  "io.open": {
+    "body": "io.open( ${1:file} ${2:[, mode]} )",
+    "description": "This function opens a file for reading or writing, in the string (default) or binary mode. It returns a new file handle or, in case of errors, nil plus an error message. This function can also be used to create a new file.",
+    "prefix": "io.open"
+  },
+  "io.output": {
+    "body": "io.output( ${1:[file]} )",
+    "description": "Sets the standard output file. When called with a file name, it opens the named file in text mode and sets its handle as the default output file. When called with a file handle, it simply sets this file handle as the default output file. When called without parameters, it returns the current default output file.",
+    "prefix": "io.output"
+  },
+  "io.read": {
+    "body": "io.read( ${1:[fmt1]} ${2:[, fmt2]} ${3:[, ...]} )",
+    "description": "Reads the file set by io.input(), according to the given formats, which specify what to read. For each format, the function returns a string or a number with the characters read, or nil if it cannot read data with the specified format. When called without formats, it uses a default format that reads the entire next line (\"*l\").",
+    "prefix": "io.read"
+  },
+  "io.tmpfile": {
+    "body": "io.tmpfile()",
+    "description": "Opens a temporary file for reading and writing and returns a handle to it. When the app ends normally, this file will be deleted.",
+    "prefix": "io.tmpfile"
+  },
+  "io.type": {
+    "body": "io.type( ${1:obj} )",
+    "description": "Checks whether obj is a valid file handle. Returns the string \"file\" if obj is an open file handle, \"closed file\" if obj is a closed file handle, or nil if obj is not a file handle.",
+    "prefix": "io.type"
+  },
+  "io.write": {
+    "body": "io.write( ${1:arg1} ${2:[, arg2]} ${3:[, ...]} )",
+    "description": "Writes the value of each of its arguments to the file. The arguments must be strings or numbers. To write other values, use tostring() or string.format() before writing.",
+    "prefix": "io.write"
+  },
+  "json.decode": {
+    "body": "json.decode( ${1:data} ${2:[, position [, nullval]]} )",
+    "description": "Decodes the JSON-encoded data structure and returns a Lua object (table) with the appropriate data. The return values are a Lua object or nil, the position of the next character that doesn't belong to the object, or (in case of errors) an error message.",
+    "prefix": "json.decode"
+  },
+  "json.encode": {
+    "body": "json.encode( ${1:t} ${2:[, options]} )",
+    "description": "Returns the Lua object (table) as a JSON-encoded string. Since items with nil values in a Lua table effectively don't exist, you should use json.null as a placeholder value if you need to preserve array indices in your JSON (see discussion of nullval in json.decode()).",
+    "prefix": "json.encode"
+  },
+  "json.prettify": {
+    "body": "json.prettify( ${1:obj} )",
+    "description": "Returns a string which is a human readable representation of the given object (or valid JSON string). The string is indented and the top-level keys are sorted into alphabetical order.",
+    "prefix": "json.prettify"
+  },
+  "licensing.init": {
+    "body": "licensing.init( ${1:providerName} )",
+    "description": "Initializes the licensing service library by specifying the name of the licensing provider. Currently, only \"google\" is supported.",
+    "prefix": "licensing.init"
+  },
+  "licensing.verify": {
+    "body": "licensing.verify( ${1:listener} )",
+    "description": "Starts the licensing verification process.",
+    "prefix": "licensing.verify"
+  },
+  "media.capturePhoto": {
+    "body": "media.capturePhoto( { ${1:listener}, ${2:[, destination]} } )",
+    "description": "Opens a platform-specific interface to the device's camera. This function is asynchronous, meaning that it returns immediately so the calling code will continue to execute until the end of its scope; after that, the application will be suspended until the session is complete. By default, the image object is added to the top of the current stage, although there is an option to save the image to a directory instead.",
+    "prefix": "media.capturePhoto"
+  },
+  "media.captureVideo ": {
+    "body": "media.captureVideo ( { ${1:listener} ${2:[, preferredQuality]} ${3:[, preferredMaxDuration]} } )",
+    "description": "Opens a platform-specific interface to the device's camera. This function is asynchronous, meaning that it returns immediately so the calling code will continue to execute until the end of its scope; after that, the application will be suspended until the session is complete. A listener is required to handle the captured object (URL) which can be used in native.newVideo() and media.playVideo().",
+    "prefix": "media.captureVideo "
+  },
+  "media.hasSource": {
+    "body": "media.hasSource( ${1:mediaSource} )",
+    "description": "Determines if the given media source, such as a camera or photo library, is available on the platform. This function should be called before calling media.selectPhoto() or media.capturePhoto() to determine if that media service is available. Returns true if the media source is available on the platform/device. Returns false if not.",
+    "prefix": "media.hasSource"
+  },
+  "media.newEventSound": {
+    "body": "media.newEventSound( ${1:filename} ${2:[, baseDir]} )",
+    "description": "Loads the event sound (1-3 seconds) from a sound file and returns an event sound ID that can be passed to media.playEventSound().",
+    "prefix": "media.newEventSound"
+  },
+  "media.newRecording": {
+    "body": "media.newRecording( ${1:[path]} )",
+    "description": "Create an object for audio recording (Recording).",
+    "prefix": "media.newRecording"
+  },
+  "media.pauseSound": {
+    "body": "media.pauseSound()",
+    "description": "Pauses playback of the extended sound currently opened by the previous call to media.playSound(). Use media.playSound() to resume playback of a paused sound.",
+    "prefix": "media.pauseSound"
+  },
+  "media.playEventSound": {
+    "body": "media.playEventSound( ${1:sound} ${2:[, baseDir]} ${3:[, completionListener]} )",
+    "description": "Plays an event sound (1-3 seconds). The first argument may be either an event sound ID or a filename for the event sound. Recommended for short sounds, especially to avoid performance hiccups.",
+    "prefix": "media.playEventSound"
+  },
+  "media.playSound": {
+    "body": "media.playSound( ${1:soundfile} ${2:[, baseDir]} ${3:[, loop]} )",
+    "description": "Plays an extended sound (as opposed to an \"event sound\" which is typically 1-3 seconds in duration), or resumes play of a paused extended sound. You can only have one such sound file open at a time.",
+    "prefix": "media.playSound"
+  },
+  "media.playVideo": {
+    "body": "media.playVideo( ${1:path} ${2:[, baseSource ]}, ${3:showControls}, ${4:listener} )",
+    "description": "Plays the video at the specified path (both local and remote) in a device-specific popup media player.",
+    "prefix": "media.playVideo"
+  },
+  "media.save": {
+    "body": "media.save( ${1:filename} ${2:[, baseDir]} )",
+    "description": "Adds specified file to photo library.",
+    "prefix": "media.save"
+  },
+  "media.selectPhoto ": {
+    "body": "media.selectPhoto ( { ${1:listener} ${2:[, mediaSource]} ${3:[, destination]} ${4:[, origin]} ${5:[, permittedArrowDirections]} } )",
+    "description": "Opens a platform-specific interface to the device's photo library. This function is asynchronous, meaning that it returns immediately so the calling code will continue to execute until the end of its scope; after that, the application will be suspended until the session is complete. By default, the image object is added to the top of the current stage, although there is an option to save the image to a directory instead.",
+    "prefix": "media.selectPhoto "
+  },
+  "media.selectVideo ": {
+    "body": "media.selectVideo ( { ${1:listener} ${2:[, mediaSource]} ${3:[, origin]} ${4:[, permittedArrowDirections]} } )",
+    "description": "Opens a platform-specific interface to the device's photo library. This function is asynchronous, meaning that it returns immediately so the calling code will continue to execute until the end of its scope; after that, the application will be suspended until the session is complete.",
+    "prefix": "media.selectVideo "
+  },
+  "media.setSoundVolume": {
+    "body": "media.setSoundVolume( ${1:volume} )",
+    "description": "Adjusts the playback volume of an extended sound (media.playSound()). This setting can be adjusted at any time before or during the extended sound playback.",
+    "prefix": "media.setSoundVolume"
+  },
+  "media.stopSound": {
+    "body": "media.stopSound()",
+    "description": "Stops playback of the extended sound currently opened by the previous call to media.playSound().",
+    "prefix": "media.stopSound"
+  },
+  "native.cancelAlert": {
+    "body": "native.cancelAlert( ${1:alert} )",
+    "description": "Dismisses an alert box programmatically. For example, you may wish to have a popup alert that automatically disappears after ten seconds even if the user doesn't click it. In that case, you could call this function at the end of a timer.",
+    "prefix": "native.cancelAlert"
+  },
+  "native.cancelWebPopup": {
+    "body": "native.cancelWebPopup()",
+    "description": "Dismisses the currently displaying web popup. This function takes no arguments because only one web popup can be shown at one time (not to be confused with native web views which can have multiple instances shown at once).",
+    "prefix": "native.cancelWebPopup"
+  },
+  "native.canShowPopup": {
+    "body": "native.canShowPopup( ${1:name} )",
+    "description": "Returns whether or not the popup type can be shown. This usually defines whether the popup will actually be displayed. However, in the case of \"appStore\", a result of true does not guarantee that the popup will be displayed because, in those cases, the particular popup will depend on additional parameters.",
+    "prefix": "native.canShowPopup"
+  },
+  "native.getFontNames": {
+    "body": "native.getFontNames()",
+    "description": "Returns an array of the available native fonts.",
+    "prefix": "native.getFontNames"
+  },
+  "native.getProperty": {
+    "body": "native.getProperty( ${1:key} )",
+    "description": "Gets the value of a platform-specific property.",
+    "prefix": "native.getProperty"
+  },
+  "native.getSync": {
+    "body": "native.getSync( ${1:filename}, ${2:params} )",
+    "description": "Gets the iCloud automatic backup settings for files in the system.DocumentsDirectory on OS X and iOS systems.",
+    "prefix": "native.getSync"
+  },
+  "native.newFont": {
+    "body": "native.newFont( ${1:name} ${2:[, size]} )",
+    "description": "Creates a font object that you can use to specify fonts in native text fields and text boxes.",
+    "prefix": "native.newFont"
+  },
+  "native.newMapView": {
+    "body": "native.newMapView( ${1:centerX}, ${2:centerY}, ${3:width}, ${4:height} )",
+    "description": "Renders a map view within the specified boundaries and returns a display object wrapper. On the map view, touch events are available when you add a mapLocation event listener.",
+    "prefix": "native.newMapView"
+  },
+  "native.newTextBox": {
+    "body": "native.newTextBox( ${1:centerX}, ${2:centerY}, ${3:width}, ${4:height} )",
+    "description": "Creates a scrollable, multi-line text box for text input. For single-line text input, see native.newTextField().",
+    "prefix": "native.newTextBox"
+  },
+  "native.newTextField": {
+    "body": "native.newTextField( ${1:centerX}, ${2:centerY}, ${3:width}, ${4:height} )",
+    "description": "Creates a single-line text field for text input. For multi-line text input, see native.newTextBox().",
+    "prefix": "native.newTextField"
+  },
+  "native.newVideo": {
+    "body": "native.newVideo( ${1:centerX}, ${2:centerY}, ${3:width}, ${4:height} )",
+    "description": "Returns a video object that can be moved and rotated. This API supports local videos (in one of the system directories) or from a remote location (server).",
+    "prefix": "native.newVideo"
+  },
+  "native.newWebView": {
+    "body": "native.newWebView( ${1:centerX}, ${2:centerY}, ${3:width}, ${4:height} )",
+    "description": "Loads a web page in a web view container. Native web views differ from web popups in that you can move them (via x/y properties) or rotate them (via the rotation property) in the same manner as other display objects.",
+    "prefix": "native.newWebView"
+  },
+  "native.requestExit": {
+    "body": "native.requestExit()",
+    "description": "Closes the application window on Android or Windows Phone gracefully without terminating the process.",
+    "prefix": "native.requestExit"
+  },
+  "native.setActivityIndicator": {
+    "body": "native.setActivityIndicator( ${1:state} )",
+    "description": "Displays or hides a platform-specific activity indicator. Touch events are ignored while the indicator is shown.",
+    "prefix": "native.setActivityIndicator"
+  },
+  "native.setKeyboardFocus": {
+    "body": "native.setKeyboardFocus( ${1:textField} )",
+    "description": "Sets keyboard focus on a native.newTextField() or native.newTextBox() and shows (or hides) the keyboard. Pass nil to remove focus and hide the keyboard. Hiding the keyboard dispatches an \"ended\" phase to the native object's listener function.",
+    "prefix": "native.setKeyboardFocus"
+  },
+  "native.setProperty": {
+    "body": "native.setProperty( ${1:key}, ${2:value} )",
+    "description": "Sets a platform-specific property.",
+    "prefix": "native.setProperty"
+  },
+  "native.showAlert": {
+    "body": "native.showAlert( ${1:title}, ${2:message} ${3:[, { buttonLabels } [, listener] ]} )",
+    "description": "Displays a popup alert box with one or more buttons, using a native alert control. Program activity, including animation, will continue in the background, but all other user interactivity will be blocked until the user selects a button or cancels the dialog.",
+    "prefix": "native.showAlert"
+  },
+  "native.showPopup": {
+    "body": "native.showPopup( ${1:name}, ${2:options} )",
+    "description": "Displays the operating system's default popup window for a specified service. Displaying this popup suspends the app on both iOS and Android.",
+    "prefix": "native.showPopup"
+  },
+  "native.showWebPopup": {
+    "body": "native.showWebPopup( ${1:[x, y, width, height,] url, [options]} )",
+    "description": "Creates a web popup that loads a local or remote web page.",
+    "prefix": "native.showWebPopup"
+  },
+  "native.setSync": {
+    "body": "native.setSync( ${1:filename}, ${2:params} )",
+    "description": "Sets the iCloud automatic backup flag for files in the system.DocumentsDirectory on OS X and iOS systems.",
+    "prefix": "native.setSync"
+  },
+  "network.setStatusListener": {
+    "body": "network.setStatusListener( ${1:hostURL}, ${2:listener} )",
+    "description": "Starts monitoring a host for its network reachability status. This API is designed around the idea that you are monitoring individual hosts and not the hardware directly. Potentially, some hosts might continue to be reachable while others are not due to internet conditions, firewall configurations, authentication rules, and whether you need full DNS routing.",
+    "prefix": "network.setStatusListener"
+  },
+  "network.request": {
+    "body": "network.request( ${1:url}, ${2:method}, ${3:listener} ${4:[, params]} )",
+    "description": "Makes an asynchronous HTTP or HTTPS request to a URL. This function returns a handle that can be passed to network.cancel() in order to cancel the request.",
+    "prefix": "network.request"
+  },
+  "network.cancel": {
+    "body": "network.cancel( ${1:requestId} )",
+    "description": "Cancel an outstanding network request made with network.request(), network.upload(), or network.download().",
+    "prefix": "network.cancel"
+  },
+  "network.download": {
+    "body": "network.download( ${1:url}, ${2:method}, ${3:listener} ${4:[, params]}, ${5:filename} ${6:[, baseDirectory]} )",
+    "description": "This API is a convenience method that is very similar to the asynchronous network.request(), except that it always attempts to download the response to a local file that you specify. In fact, this method simply calls network.request(), putting the destination filename and baseDirectory parameters into params.response and specifying \"download\" progress notifications.",
+    "prefix": "network.download"
+  },
+  "network.upload": {
+    "body": "network.upload( ${1:url}, ${2:method}, ${3:listener} ${4:[, params]}, ${5:filename} ${6:[, baseDirectory]} ${7:[, contentType]} )",
+    "description": "This API is a convenience method that is very similar to the asynchronous network.request(), except that always attempts to upload the request from a local file that you specify. In fact, this method simply calls network.request(), putting the source filename and baseDirectory parameters into a params.body table, adding contentType as a params.headers request header value, and specifying \"upload\" progress notifications.",
+    "prefix": "network.upload"
+  },
+  "os.clock": {
+    "body": "os.clock()",
+    "description": "Returns an approximation of the amount in seconds of CPU time used by the program.",
+    "prefix": "os.clock"
+  },
+  "os.date": {
+    "body": "os.date( ${1:[format [, time] ]} )",
+    "description": "Returns a string or a table containing date and time, formatted according to the given string format. When called without arguments, os.date() returns a reasonable date and time representation that depends on the host system and on the current locale (that is, os.date() is equivalent to os.date(\"%c\")).",
+    "prefix": "os.date"
+  },
+  "os.difftime": {
+    "body": "os.difftime( ${1:t1}, ${2:t2} )",
+    "description": "Returns the number of seconds from time t1 to time t2. In POSIX, Windows, and some other systems, this value is exactly t2 - t1.",
+    "prefix": "os.difftime"
+  },
+  "os.execute": {
+    "body": "os.execute( ${1:cmd} )",
+    "description": "Passes a string to the operating system for execution and returns a system-dependent status code. This function is equivalent to the C function system().",
+    "prefix": "os.execute"
+  },
+  "os.exit": {
+    "body": "os.exit( ${1:[ exit ]} )",
+    "description": "Calls the C function exit(), with an optional code, to terminate the host program. The default value for code is the success code.",
+    "prefix": "os.exit"
+  },
+  "os.remove": {
+    "body": "os.remove( ${1:file} )",
+    "description": "Deletes a file or directory and returns two possible values:",
+    "prefix": "os.remove"
+  },
+  "os.rename": {
+    "body": "os.rename( ${1:oldname}, ${2:newname} )",
+    "description": "Renames a file or directory and returns two possible values:",
+    "prefix": "os.rename"
+  },
+  "os.time": {
+    "body": "os.time( ${1:table} )",
+    "description": "Returns the current time in seconds from 1970 when called without arguments, or a time representing the date and time specified by the given table.",
+    "prefix": "os.time"
+  },
+  "physics.addBody": {
+    "body": "physics.addBody( ${1:object}, ${2:[bodyType,]} ${3:[params]} )",
+    "description": "This function turns almost any Corona display object into a simulated physical object with specific physical properties. It accepts the display object, an optional body type (string), and an optional params table containing key-value pairs that specify the properties for the physics body. Within this params table, the following apply:",
+    "prefix": "physics.addBody"
+  },
+  "physics.fromMKS": {
+    "body": "physics.fromMKS( ${1:unitName}, ${2:value} ) ",
+    "description": "Convenience function for converting from MKS units to Corona units.",
+    "prefix": "physics.fromMKS"
+  },
+  "physics.getAverageCollisionPositions": {
+    "body": "physics.getAverageCollisionPositions()",
+    "description": "It's common for Box2D to report multiple contact points during a single iteration of a simulation.",
+    "prefix": "physics.getAverageCollisionPositions"
+  },
+  "physics.getDebugErrorsEnabled": {
+    "body": "physics.getDebugErrorsEnabled()",
+    "description": "This function is used to determine if extra physics errors are allowed to be caught by Box2D.",
+    "prefix": "physics.getDebugErrorsEnabled"
+  },
+  "physics.getGravity": {
+    "body": "physics.getGravity()",
+    "description": "Returns the x and y components of the global gravity vector, in units of m/s². This takes advantage of the fact that Lua functions can return multiple values, which in this case are:",
+    "prefix": "physics.getGravity"
+  },
+  "physics.getMKS": {
+    "body": "physics.getMKS( ${1:key} )",
+    "description": "Get the MKS value of the physics simulation for specific keys.",
+    "prefix": "physics.getMKS"
+  },
+  "physics.getReportCollisionsInContentCoordinates": {
+    "body": "physics.getReportCollisionsInContentCoordinates()",
+    "description": "This function is used to determine if the content origin is the collision point in the collision, preCollision, and postCollision physics events.",
+    "prefix": "physics.getReportCollisionsInContentCoordinates"
+  },
+  "physics.newJoint": {
+    "body": "physics.newJoint( ${1:jointType}, ${2:...} )",
+    "description": "Joints can be used to assemble complex physical objects from multiple rigid bodies. For example, joints can be used to join the limbs of a ragdoll figure, attach the wheels of a vehicle to its body, create a moving elevator platform, and more.",
+    "prefix": "physics.newJoint"
+  },
+  "physics.newParticleSystem": {
+    "body": "physics.newParticleSystem( ${1:params} )",
+    "description": "A ParticleSystem object contains particles with liquid-like behavior under the LiquidFun framework.",
+    "prefix": "physics.newParticleSystem"
+  },
+  "physics.pause": {
+    "body": "physics.pause()",
+    "description": "Pause the physics engine.",
+    "prefix": "physics.pause"
+  },
+  "physics.queryRegion": {
+    "body": "physics.queryRegion( ${1:upperLeftX}, ${2:upperLeftY}, ${3:lowerRightX}, ${4:lowerRightY} )",
+    "description": "This function is used to find the objects that intersect with an axis-aligned (non-rotated) box. This box is defined by an upper-left coordinate and a lower-right coordinate.",
+    "prefix": "physics.queryRegion"
+  },
+  "physics.rayCast": {
+    "body": "physics.rayCast( ${1:fromX}, ${2:fromY}, ${3:toX}, ${4:toY}, ${5:behavior} )",
+    "description": "This function is used to find the objects that collide with a line, and the collision points along that line.",
+    "prefix": "physics.rayCast"
+  },
+  "physics.reflectRay": {
+    "body": "physics.reflectRay( ${1:fromX}, ${2:fromY}, ${3:hit} )",
+    "description": "This function is used to reflect a vector as returned by physics.rayCast().",
+    "prefix": "physics.reflectRay"
+  },
+  "physics.removeBody": {
+    "body": "physics.removeBody( ${1:object} )",
+    "description": "Removes a physics body from a display object without destroying the entire object. This removes the body created with physics.addBody().",
+    "prefix": "physics.removeBody"
+  },
+  "physics.setAverageCollisionPositions": {
+    "body": "physics.setAverageCollisionPositions( ${1:enabled} )",
+    "description": "Because it's common for Box2D to report multiple collision points during a single frame iteration, this setting is useful to report those points as one averaged point. This function applies to all the contact points in the collision, preCollision, and postCollision physics events.",
+    "prefix": "physics.setAverageCollisionPositions"
+  },
+  "physics.setContinuous": {
+    "body": "physics.setContinuous( ${1:enabled} )",
+    "description": "By default, Box2D performs continuous collision detection, which prevents objects from \"tunneling.\" If it were turned off, an object that moves quickly enough could potentially pass through a thin wall.",
+    "prefix": "physics.setContinuous"
+  },
+  "physics.setDebugErrorsEnabled": {
+    "body": "physics.setDebugErrorsEnabled( ${1:enabled} )",
+    "description": "This function allows extra physics errors to be caught by Box2D.",
+    "prefix": "physics.setDebugErrorsEnabled"
+  },
+  "physics.setDrawMode": {
+    "body": "physics.setDrawMode( ${1:mode} )",
+    "description": "Sets one of three possible \"rendering modes\" for the physics engine. While this feature will run on devices, it's most useful in the Corona Simulator when debugging unexpected physics engine behavior.",
+    "prefix": "physics.setDrawMode"
+  },
+  "physics.setGravity": {
+    "body": "physics.setGravity( ${1:gx}, ${2:gy} )",
+    "description": "Sets the x and y components of the global gravity vector in units of m/s². The default is ( 0, 9.8 ) to simulate standard Earth gravity, pointing downward on the y axis.",
+    "prefix": "physics.setGravity"
+  },
+  "physics.setMKS": {
+    "body": "physics.setMKS( ${1:key}, ${2:value} )",
+    "description": "Sets the MKS (meters, kilograms, and seconds) value of the physics simulation for specific keys. This is strictly for advanced purposes — the average developer and project will not require this function.",
+    "prefix": "physics.setMKS"
+  },
+  "physics.setPositionIterations": {
+    "body": "physics.setPositionIterations( ${1:value} )",
+    "description": "Sets the accuracy of the engine's position calculations. The default value is 3.",
+    "prefix": "physics.setPositionIterations"
+  },
+  "physics.setReportCollisionsInContentCoordinates": {
+    "body": "physics.setReportCollisionsInContentCoordinates( ${1:enabled} )",
+    "description": "This function sets the content origin as the collision point in the collision, preCollision, and postCollision physics events.",
+    "prefix": "physics.setReportCollisionsInContentCoordinates"
+  },
+  "physics.setScale": {
+    "body": "physics.setScale( ${1:value} )",
+    "description": "Sets the internal pixels-per-meter ratio that is used in converting between on-screen Corona coordinates and simulated physics coordinates. This should be done only once, before any physical objects are instantiated.",
+    "prefix": "physics.setScale"
+  },
+  "physics.setTimeStep": {
+    "body": "physics.setTimeStep( ${1:dt} )",
+    "description": "Specifies either a frame-based (approximated) physics simulation or a time-based simulation.",
+    "prefix": "physics.setTimeStep"
+  },
+  "physics.setVelocityIterations": {
+    "body": "physics.setVelocityIterations( ${1:value} )",
+    "description": "Sets the accuracy of the engine's velocity calculations. The default value is 8.",
+    "prefix": "physics.setVelocityIterations"
+  },
+  "physics.start": {
+    "body": "physics.start( ${1:noSleep} )",
+    "description": "This function start the physics simulation and should be called before any other physics functions.",
+    "prefix": "physics.start"
+  },
+  "physics.stop": {
+    "body": "physics.stop()",
+    "description": "Stops the physics engine. This function will return false and display a warning message if the API cannot be processed.",
+    "prefix": "physics.stop"
+  },
+  "physics.toMKS": {
+    "body": "physics.toMKS( ${1:unitName}, ${2:value} )",
+    "description": "Convenience function for converting from Corona units to MKS units.",
+    "prefix": "physics.toMKS"
+  },
+  "store.finishTransaction": {
+    "body": "store.finishTransaction( ${1:transaction} )",
+    "description": "Notifies the Apple iTunes Store that a transaction is complete.",
+    "prefix": "store.finishTransaction"
+  },
+  "store.init": {
+    "body": "store.init( ${1:[storeName,]} ${2:listener} )",
+    "description": "Activates in-app purchases (in-app billing as it is known on Android platforms). Allows you to receive callbacks with the listener function that you specify.",
+    "prefix": "store.init"
+  },
+  "store.loadProducts": {
+    "body": "store.loadProducts( ${1:productIdentifiers}, ${2:listener} )",
+    "description": "iOS and the Google Play Marketplace support loading of product information that you've entered into iTunes Connect or the Google Play Developer Console. Corona provides the store.canLoadProducts property which will be true if the initialized store supports the loading of products. Following this check, the store.loadProducts() function will retrieve information about items available for sale. This includes the title, description, product identifier, type, and other details.",
+    "prefix": "store.loadProducts"
+  },
+  "store.purchase": {
+    "body": "store.purchase( ${1:arrayOfProducts} )",
+    "description": "Initiates a purchase transaction on a provided list of products.",
+    "prefix": "store.purchase"
+  },
+  "store.restore": {
+    "body": "store.restore()",
+    "description": "Users who wipe the information on a device or buy a new device, may wish to restore previously purchased items without paying for them again. The store.restore() API initiates this process.",
+    "prefix": "store.restore"
+  },
+  "system.activate": {
+    "body": "system.activate( ${1:feature} )",
+    "description": "Activates a system level feature, such as \"multitouch\". Use system.deactivate() to disable a feature.",
+    "prefix": "system.activate"
+  },
+  "system.deactivate": {
+    "body": "system.deactivate( ${1:feature} )",
+    "description": "Deactivates a system level feature, such as \"multitouch\".",
+    "prefix": "system.deactivate"
+  },
+  "system.getIdleTimer": {
+    "body": "system.getIdleTimer()",
+    "description": "Returns whether the application idle timer is enabled.",
+    "prefix": "system.getIdleTimer"
+  },
+  "system.getInfo": {
+    "body": "system.getInfo( ${1:property} )",
+    "description": "Returns information about the system on which the application is running.",
+    "prefix": "system.getInfo"
+  },
+  "system.getInputDevices": {
+    "body": "system.getInputDevices()",
+    "description": "Returns an array of InputDevice devices that are currently connected to the system, such as a touchscreen, keyboard, mouse, joystick, etc. Alternatively returns an empty array if no input devices are found. Note that input devices which were once connected but were later disconnected will not be returned by this function.",
+    "prefix": "system.getInputDevices"
+  },
+  "system.getPreference": {
+    "body": "system.getPreference( ${1:category}, ${2:name} )",
+    "description": "Returns a preference value as a string.",
+    "prefix": "system.getPreference"
+  },
+  "system.getTimer": {
+    "body": "system.getTimer()",
+    "description": "Returns time in milliseconds since application launch.",
+    "prefix": "system.getTimer"
+  },
+  "system.hasEventSource": {
+    "body": "system.hasEventSource( ${1:eventName} )",
+    "description": "Returns whether the system delivers events corresponding to eventName.",
+    "prefix": "system.hasEventSource"
+  },
+  "system.openURL": {
+    "body": "system.openURL( ${1:url} )",
+    "description": "Open a web page in the browser, create an email, or dial a phone number.",
+    "prefix": "system.openURL"
+  },
+  "system.pathForFile": {
+    "body": "system.pathForFile( ${1:filename} ${2:[, baseDirectory]} )",
+    "description": "Generates an absolute path using system-defined directories as the base. An additional optional parameter, baseDirectory, specifies which base directory is used to construct the full path, with its default value being system.ResourceDirectory.",
+    "prefix": "system.pathForFile"
+  },
+  "system.setAccelerometerInterval": {
+    "body": "system.setAccelerometerInterval( ${1:frequency} )",
+    "description": "Sets the frequency of accelerometer events. On the iPhone, the minimum frequency is 10 Hz and the maximum is 100 Hz. Accelerometer events are a significant drain on battery, so only increase the frequency when you need faster responses.",
+    "prefix": "system.setAccelerometerInterval"
+  },
+  "system.setGyroscopeInterval": {
+    "body": "system.setGyroscopeInterval( ${1:frequency} )",
+    "description": "Sets the frequency of gyroscope events in Hz. Gyroscope events are a significant drain on battery, so only increase the frequency when you need faster responses.",
+    "prefix": "system.setGyroscopeInterval"
+  },
+  "system.setIdleTimer": {
+    "body": "system.setIdleTimer( ${1:enabled} )",
+    "description": "Controls whether the idle timer is enabled. If set to true, the timer will be active (default) or inactive if false. When active, the idle timer dims the screen and eventually puts the device to sleep when no user activity occurs (e.g. screen touches).",
+    "prefix": "system.setIdleTimer"
+  },
+  "system.setLocationAccuracy": {
+    "body": "system.setLocationAccuracy( ${1:distance} )",
+    "description": "Sets the desired accuracy of location (GPS) events to distance in meters. Note: the actual accuracy depends on the capabilities of the device and/or platform. On the iPhone, accuracy is limited to discrete distances: < 10, 10, 100, 1000, and 3000 meters. Higher accuracy (smaller distances) requires more battery life, so use larger distance to preserve battery life.",
+    "prefix": "system.setLocationAccuracy"
+  },
+  "system.setLocationThreshold": {
+    "body": "system.setLocationThreshold( ${1:distance} )",
+    "description": "Sets how much distance in meters must be travelled until the next location (GPS) event is sent. Because location events involve hardware that can drain the battery, using larger threshold distances preserve battery life.",
+    "prefix": "system.setLocationThreshold"
+  },
+  "system.setTapDelay": {
+    "body": "system.setTapDelay( ${1:delayTime} )",
+    "description": "The delay time between when a tap is detected and when the tap event is delivered. By default, this time is 0.",
+    "prefix": "system.setTapDelay"
+  },
+  "system.vibrate": {
+    "body": "system.vibrate()",
+    "description": "Vibrates the phone. On the Corona simulator this will sound a system beep (OS X only).",
+    "prefix": "system.vibrate"
+  },
+  "table.concat": {
+    "body": "table.concat( ${1:t}, ${2:sep}, ${3:i}, ${4:j} )",
+    "description": "Concatenate the elements of a table together to form a string. Each element must be able to be coerced into a string. A separator can be specified which is placed between concatenated elements.",
+    "prefix": "table.concat"
+  },
+  "table.copy": {
+    "body": "table.copy( ${1:t}, ${2:...} )",
+    "description": "Returns a shallow copy of array, i.e. the portion of the array (table) with integer keys. A variable number of additional arrays can be passed in as optional arguments. If an array has a hole (a nil entry), copying in a given source array stops at the last consecutive item prior to the hole.",
+    "prefix": "table.copy"
+  },
+  "table.indexOf": {
+    "body": "table.indexOf( ${1:t}, ${2:element} )",
+    "description": "Returns the integer index of element in array t. Returns nil if not in array. The search goes through the length of the array as determined by #t, whose value is undefined if there are holes.",
+    "prefix": "table.indexOf"
+  },
+  "table.insert": {
+    "body": "table.insert( ${1:t}, ${2:pos}, ${3:value} )",
+    "description": "Insert a given value into a table. If a position is given insert the value before the element currently at that position.",
+    "prefix": "table.insert"
+  },
+  "table.maxn": {
+    "body": "table.maxn( ${1:t} )",
+    "description": "Returns the largest positive numerical index of the given table, or zero if the table has no positive numerical indices. To do its job, this function does a linear traversal of the whole table.",
+    "prefix": "table.maxn"
+  },
+  "table.remove": {
+    "body": "table.remove( ${1:t}, ${2:pos} )",
+    "description": "Removes from table the element at position pos, shifting down other elements to close the space, if necessary. Returns the value of the removed element.",
+    "prefix": "table.remove"
+  },
+  "table.sort": {
+    "body": "table.sort( ${1:t}, ${2:compare} )",
+    "description": "Sorts table elements in a given order, in-place, from table[1] to table[n], where n is the length of the table. It receives the table (array) to be sorted plus an optional compare function. This compare function receives two arguments and must return true if the first argument should come first in the sorted array. If compare is not given, then the standard Lua operator < is used instead.",
+    "prefix": "table.sort"
+  },
+  "timer.cancel": {
+    "body": "timer.cancel( ${1:timerID} )",
+    "description": "Cancels a timer operation initiated with timer.performWithDelay().",
+    "prefix": "timer.cancel"
+  },
+  "timer.pause": {
+    "body": "timer.pause( ${1:timerId} )",
+    "description": "Pauses a timer started with timer.performWithDelay(). It returns a number that represents the amount of time remaining, in milliseconds.",
+    "prefix": "timer.pause"
+  },
+  "timer.performWithDelay": {
+    "body": "timer.performWithDelay( ${1:delay}, ${2:listener} ${3:[, iterations]} )",
+    "description": "Call a specified function after a delay. This function returns an object that can be used with other timer functions. For example, the returned handle could be passed to timer.cancel() to cancel the invocation of the specified listener.",
+    "prefix": "timer.performWithDelay"
+  },
+  "timer.resume": {
+    "body": "timer.resume( ${1:timerId} )",
+    "description": "Resumes a timer that was paused with timer.pause(). It returns a number that represents the amount of time remaining in the timer.",
+    "prefix": "timer.resume"
+  },
+  "transition.cancel": {
+    "body": "transition.cancel( ${1:tagName} )",
+    "description": "The transition.cancel() function will cancel one of the following, depending on the passed parameter:",
+    "prefix": "transition.cancel"
+  },
+  "transition.from": {
+    "body": "transition.from( ${1:target}, ${2:params} )",
+    "description": "Similar to transition.to() except that the starting property values are specified in the parameters table and the final values are the corresponding property values of the object prior to the call.",
+    "prefix": "transition.from"
+  },
+  "transition.pause": {
+    "body": "transition.pause( ${1:tagName} )",
+    "description": "The transition.pause() function pauses one of the following, depending on the passed parameter:",
+    "prefix": "transition.pause"
+  },
+  "transition.resume": {
+    "body": "transition.resume( ${1:tagName} )",
+    "description": "The transition.resume() function resumes one of the following, depending on the passed parameter:",
+    "prefix": "transition.resume"
+  },
+  "transition.to": {
+    "body": "transition.to( ${1:target}, ${2:params} )",
+    "description": "Animates (transitions) a display object using an optional easing algorithm. Use this to move, rotate, fade, or scale an object over a specific period of time.",
+    "prefix": "transition.to"
+  },
+  "widget.newButton": {
+    "body": "widget.newButton( ${1:options} )",
+    "description": "Creates a Button object.",
+    "prefix": "widget.newButton"
+  },
+  "widget.newPickerWheel": {
+    "body": "widget.newPickerWheel( ${1:options} )",
+    "description": "Creates a Picker Wheel object.",
+    "prefix": "widget.newPickerWheel"
+  },
+  "widget.newProgressView": {
+    "body": "widget.newProgressView( ${1:options} )",
+    "description": "Creates a ProgressView object.",
+    "prefix": "widget.newProgressView"
+  },
+  "widget.newScrollView": {
+    "body": "widget.newScrollView( ${1:options} )",
+    "description": "Creates a ScrollView object.",
+    "prefix": "widget.newScrollView"
+  },
+  "widget.newSegmentedControl": {
+    "body": "widget.newSegmentedControl( ${1:options} )",
+    "description": "Creates a Segmented Control object.",
+    "prefix": "widget.newSegmentedControl"
+  },
+  "widget.newSlider": {
+    "body": "widget.newSlider( ${1:options} )",
+    "description": "Creates a Slider object.",
+    "prefix": "widget.newSlider"
+  },
+  "widget.newSpinner": {
+    "body": "widget.newSpinner( ${1:options} )",
+    "description": "Creates a Spinner object.",
+    "prefix": "widget.newSpinner"
+  },
+  "widget.newStepper": {
+    "body": "widget.newStepper( ${1:options} )",
+    "description": "Creates a Stepper object. The stepper consists of a minus and plus button which can be tapped or held down to decrement/increment a value, for example, the music or sound volume setting in a game.",
+    "prefix": "widget.newStepper"
+  },
+  "widget.newSwitch": {
+    "body": "widget.newSwitch( ${1:options} )",
+    "description": "Creates a Switch object.",
+    "prefix": "widget.newSwitch"
+  },
+  "widget.newTabBar": {
+    "body": "widget.newTabBar( ${1:options} )",
+    "description": "Creates a TabBar object.",
+    "prefix": "widget.newTabBar"
+  },
+  "widget.newTableView": {
+    "body": "widget.newTableView( ${1:options} )",
+    "description": "Creates a TableView object.",
+    "prefix": "widget.newTableView"
+  },
+  "widget.setTheme": {
+    "body": "widget.setTheme( ${1:themeFile} )",
+    "description": "Use this function to set the overall theme of the widget library. This should be called immediately after you require() the widget library.",
+    "prefix": "widget.setTheme"
+  },
+  "EmitterObject:start": {
+    "body": "EmitterObject:start()",
+    "description": "Starts the emission of particles from an EmitterObject if the emitter is stopped, or resumes the emission of particles if the emitter is paused.",
+    "prefix": "EmitterObject:start"
+  },
+  "EmitterObject:stop": {
+    "body": "EmitterObject:stop()",
+    "description": "Stops the emission of particles from an EmitterObject. This function allows the currently active particles to finish their cycle naturally.",
+    "prefix": "EmitterObject:stop"
+  },
+  "EmitterObject:pause": {
+    "body": "EmitterObject:pause()",
+    "description": "Pauses (freezes) the EmitterObject. No particles will be added, removed, or animated while an emitter is paused.",
+    "prefix": "EmitterObject:pause"
+  },
+  "Runtime:hasEventSource": {
+    "body": "Runtime:hasEventSource( ${1:eventSourceName} )",
+    "description": "Determines if the device is capable of providing events for a given event source such as an \"accelerometer\" or \"gyroscope\". You should call this function before calling the Runtime:addEventListener() function.",
+    "prefix": "Runtime:hasEventSource"
+  },
+  "Runtime:hideErrorAlerts": {
+    "body": "Runtime:hideErrorAlerts()",
+    "description": "Disables the runtime error alert that appears if the application hits an error condition. This is shorthand for defining your own unhandledError listener and returning true.",
+    "prefix": "Runtime:hideErrorAlerts"
+  }
+}
